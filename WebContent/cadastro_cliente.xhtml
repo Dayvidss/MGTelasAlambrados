@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro de Cliente</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+			Cadastro de Cliente
+			</f:facet>
+			
+			Nome:
+			<h:inputText value="#cadastro_cliente.nome"></h:inputText>
+			Endereço:
+			<h:inputText value="#cadastro_cliente.endereco"></h:inputText>
+			Numero:
+			<h:inputText value="#cadastro_cliente.numero"></h:inputText>
+			Bairro:
+			<h:inputText value="#cadastro_cliente.bairro"></h:inputText>
+			Cidade:
+			<h:inputText value="#cadastro_cliente.cidade"></h:inputText>
+			Estado:
+			<h:inputText value="#cadastro_cliente.estado"></h:inputText>
+			CEP:
+			<h:inputText value="#cadastro_cliente.cep"></h:inputText>
+			Telefone:
+			<h:inputText value="#cadastro_cliente.telefone"></h:inputText>
+			E-mail:
+			<h:inputText value="#cadastro_cliente.email"></h:inputText>
+			Tipo:
+			<h:selectOneRadio value="#cadastro_cliente.tipo">
+				<f:selectItem itemValue="J" itemLabel="Jurídica"></f:selectItem>
+				<f:selectItem itemValue="F" itemLabel="Fisica"></f:selectItem>
+			</h:selectOneRadio>
+			CPF/CNPJ:
+			<h:inputText value="#cadastro_cliente.cpf"></h:inputText>
+		</h:panelGrid>
+		
+		<h:commandButton value="Cadastrar" action="info"></h:commandButton>
+	</h:form>
+</h:body>
+</html>
