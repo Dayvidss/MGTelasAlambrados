@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+	<ui:define name="title">Cadastro de Fornecedores</ui:define>
+	<ui:define name="content">
+
+		<h:form styleClass="wufoo">
+			<h:panelGrid columns="2">
+				<f:facet name="header">
+			Dados do Fornecedor
+			</f:facet>
+			
+			Nome:
+			<h:inputText value="#{fornecedor.nome}"></h:inputText>
+			Endereço:
+			<h:inputText value="#{fornecedor.endereco}"></h:inputText>
+			Numero:
+			<h:inputText value="#{fornecedor.numero}"></h:inputText>
+			Bairro:
+			<h:inputText value="#{fornecedor.bairro}"></h:inputText>
+			Cidade:
+			<h:inputText value="#{fornecedor.cidade}"></h:inputText>
+			Estado:
+			<h:inputText value="#{fornecedor.estado}"></h:inputText>
+			CEP:
+			<h:inputText value="#{fornecedor.cep}"></h:inputText>
+			Telefone:
+			<h:inputText value="#{fornecedor.telefone}"></h:inputText>
+			E-mail:
+			<h:inputText value="#{fornecedor.email}"></h:inputText>
+			Tipo:
+			<h:selectOneRadio value="#{fornecedor.tipo}">
+					<f:selectItem itemValue="J" itemLabel="Jurídica"></f:selectItem>
+					<f:selectItem itemValue="F" itemLabel="Fisica"></f:selectItem>
+				</h:selectOneRadio>
+			CPF/CNPJ:
+			<h:inputText value="#{fornecedor.cpf}"></h:inputText>
+			</h:panelGrid>
+
+			<h:commandButton value="Cadastrar" action="info.xhtml"></h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

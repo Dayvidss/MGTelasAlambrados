@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+	<ui:define name="title">Cadastro de Clientes</ui:define>
+	<ui:define name="content">
+	
+		<h:form id="f" styleClass="wufoo">
+			<h:panelGrid columns="2">
+				<f:facet name="header">
+			Dados do Cliente
+			</f:facet>
+			
+			Nome:
+			<h:inputText value="#{cadcliente.nome}"></h:inputText>
+			Endereço:
+			<h:inputText value="#{cadcliente.endereco}"></h:inputText>
+			Numero:
+			<h:inputText value="#{cadcliente.numero}"></h:inputText>
+			Bairro:
+			<h:inputText value="#{cadcliente.bairro}"></h:inputText>
+			Cidade:
+			<h:inputText value="#{cadcliente.cidade}"></h:inputText>
+			Estado:
+			<h:inputText value="#{cadcliente.estado}"></h:inputText>
+			CEP:
+			<h:inputText value="#{cadcliente.cep}"></h:inputText>
+			Telefone:
+			<h:inputText value="#{cadcliente.telefone}"></h:inputText>
+			E-mail:
+			<h:inputText value="#{cadcliente.email}"></h:inputText>
+			Tipo:
+			<h:selectOneMenu value="#{cadcliente.tipo}">
+					<f:selectItem itemValue="J" itemLabel="Jurídica"></f:selectItem>
+					<f:selectItem itemValue="F" itemLabel="Fisica"></f:selectItem>
+				</h:selectOneMenu>
+			CPF/CNPJ:
+			<h:inputText value="#{cadcliente.cpf}"></h:inputText>
+			</h:panelGrid>
+
+			<h:commandButton value="Cadastrar" action="info"></h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

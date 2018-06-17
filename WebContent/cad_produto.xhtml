@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/layout.xhtml">
+	<ui:define name="title">Cadastro de Produtos</ui:define>
+	<ui:define name="content">
+	
+	<h:form styleClass="wufoo">
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+			Dados do Produto
+			</f:facet>
+			
+			Nome:
+			<h:inputText value="#{produto.nome}"></h:inputText>
+			Unidade de medida:
+			<h:inputText value="#{produto.um}"></h:inputText>
+			Preço:
+			<h:inputText value="#{produto.preco}"></h:inputText>
+			Tipo:
+			<h:selectOneRadio value="#{produto.tipo}">
+				<f:selectItem itemValue="MP" itemLabel="Matéria Prima"></f:selectItem>
+				<f:selectItem itemValue="PA" itemLabel="Produto Acabado"></f:selectItem>
+			</h:selectOneRadio>
+		</h:panelGrid>
+
+		<h:commandButton value="Cadastrar" action="info.xhtml"></h:commandButton>
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>
