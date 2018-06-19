@@ -13,40 +13,26 @@ import javax.persistence.*;
 @Entity
 @Table(name="CLIENTE")
 public class Cliente implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-	   
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
-	private String nome;
-	
-	private String endereco;
-	
-	private Integer numero;
-	
-	private String bairro;
-	
-	private String cidade;
-	
-	private String estado;
-	
-	private String cep;
-	
-	private String telefone;
-	
-	private String email;
-	
-	private Character tipo;
-	
-	private String cpf;
-	
-	private static final long serialVersionUID = 1L;
+	private Integer codCliente;
 
-	public Cliente() {
-		super();
-	}   
-	
+	@Column(length = 60)
+	private String nome;
+	private String endereco;
+	private Integer numero;
+	private String bairro;
+	private String cidade;
+	private String estado;
+	private String cep;
+	private String telefone;
+	private String email;
+	private Character tipo;
+	private String cpf;
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -131,5 +117,13 @@ public class Cliente implements Serializable {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-   
+
+	public Integer getCodCliente() {
+		return codCliente;
+	}
+
+	public void setCodCliente(Integer codCliente) {
+		this.codCliente = codCliente;
+	}
+
 }

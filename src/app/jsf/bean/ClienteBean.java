@@ -1,119 +1,104 @@
 package app.jsf.bean;
 
-import java.io.Serializable;
-import java.lang.Integer;
-import java.lang.String;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.*;
 
-@Named("cadcliente")
+import app.jsf.model.Cliente;
+import app.jsf.service.ClienteService;
+import app.jsf.service.ValidationException;
+
+@Named("clienteBean")
 @RequestScoped
-public class ClienteBean implements Serializable {
-
-	   
-	@Id
-	private Integer id;
-	private String nome;
-	private String endereco;
-	private Integer numero;
-	private String bairro;
-	private String cidade;
-	private String estado;
-	private String cep;
-	private String telefone;
-	private String email;
-	private Character tipo;
-	private String cpf;
+public class ClienteBean extends AbstractBean {
 	private static final long serialVersionUID = 1L;
 
-	public ClienteBean() {
-		super();
-	}   
-	public Integer getId() {
-		return this.id;
+	@Inject
+	private ClienteService clienteService;
+	
+	private Cliente cliente;
+
+	private List<Cliente> clientes;
+	
+	/**
+	 * Salva ou atualiza o cliente
+	 * @return
+	 * @throws Exception
+	 */
+	public String gravar() throws Exception{
+		try {
+			//A operação a ser realizada depende da existência ou não do Id
+			if(cliente.getId() == null) {
+				clienteService.salvar(cliente);
+			}else {
+				clienteService.atualizar(cliente);
+			}
+			
+			cliente = null;
+			return redirect("cliente");
+		}catch(ValidationException e) {
+			// Ocorreu um erro de validação de negócio
+			addMessageToRequest(e.getMessage());
+			return null;
+		}
+	}
+	
+	/**
+	 * Carrega um cliente para que ele seja alterado
+	 * @param clienteId
+	 * @return
+	 * @throws Exception
+	 */
+	public String alterar(Integer clienteId) throws Exception {
+		cliente = clienteService.carregar(clienteId);
+		clientes = null;
+		return null;
+	}
+	
+	/**
+	 * Exclui um cliente
+	 * @param clienteId
+	 * @return
+	 * @throws Exception
+	 */
+	public String excluir(Integer clienteId) throws Exception{
+		clienteService.excluir(clienteId);
+		clientes = null;
+		return redirect("cliente");
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}   
-	public String getNome() {
-		return this.nome;
+	/**
+	 * Limpa formulário
+	 * @return
+	 * @throws Exception
+	 */
+	public String limpar() throws Exception{
+		cliente = null;
+		return null;
+	}
+	
+	public Cliente getCliente() {
+		if(cliente == null) {
+			cliente = new Cliente();
+		}
+		return cliente;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}   
-	public String getEndereco() {
-		return this.endereco;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}   
-	public Integer getNumero() {
-		return this.numero;
+	/**
+	 * Obtem lista de clientes cadastrados
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Cliente> getClientes() throws Exception{
+		if(clientes == null) {
+			clientes = clienteService.listarClientes();
+		}
+		return clientes;
 	}
-
-	public void setNumero(Integer numero) {
-		this.numero = numero;
-	}   
-	public String getBairro() {
-		return this.bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}   
-	public String getCidade() {
-		return this.cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}   
-	public String getEstado() {
-		return this.estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}   
-	public String getCep() {
-		return this.cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}   
-	public String getTelefone() {
-		return this.telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}   
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}   
-	public Character getTipo() {
-		return this.tipo;
-	}
-
-	public void setTipo(Character tipo) {
-		this.tipo = tipo;
-	}   
-	public String getCpf() {
-		return this.cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-   
 }
