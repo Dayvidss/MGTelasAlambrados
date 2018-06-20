@@ -5,11 +5,11 @@
 		<jta-data-source>java:jboss/datasources/MySQL-DS-MG</jta-data-source>
 		<class>app.jsf.model.Cliente</class>
 		<class>app.jsf.model.Fornecedor</class>
-		<class>app.jsf.model.Pedido</class>
 		<class>app.jsf.model.ItemPedido</class>
+		<class>app.jsf.model.Pedido</class>
 		<class>app.jsf.model.Produto</class>
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 		</properties>
 	</persistence-unit>
 </persistence>

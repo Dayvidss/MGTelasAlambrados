@@ -25,10 +25,14 @@ public class ClienteDAO extends DAO{
 	 * @return
 	 */
 	public boolean existeCliente(String cpf, Integer clienteId) {
-		String query = "SELECT COUNT(c) FROM CLIENTE c WHERE c.cpf = '" + cpf + "'";
+		String query = "SELECT COUNT(c) FROM cliente c WHERE c.cpf = '" + cpf + "'";
+		
 		if(clienteId != null) {
 			query += " AND c.id = '" + clienteId + "'";
 		}
+		
+		query += ", Cliente.class";
+		
 		Query q = criarQuery(query);
 		long count = (Long) q.getResultList().get(0);
 		return count > 0;

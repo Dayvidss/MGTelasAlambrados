@@ -12,7 +12,6 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="PEDIDO")
 public class Pedido implements Serializable {
 
 	/**

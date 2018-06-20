@@ -16,33 +16,33 @@
 			</f:facet>
 			
 			Nome:
-			<h:inputText value="#{cadcliente.nome}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.nome}"></h:inputText>
 			Endereço:
-			<h:inputText value="#{cadcliente.endereco}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.endereco}"></h:inputText>
 			Numero:
-			<h:inputText value="#{cadcliente.numero}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.numero}"></h:inputText>
 			Bairro:
-			<h:inputText value="#{cadcliente.bairro}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.bairro}"></h:inputText>
 			Cidade:
-			<h:inputText value="#{cadcliente.cidade}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.cidade}"></h:inputText>
 			Estado:
-			<h:inputText value="#{cadcliente.estado}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.estado}"></h:inputText>
 			CEP:
-			<h:inputText value="#{cadcliente.cep}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.cep}"></h:inputText>
 			Telefone:
-			<h:inputText value="#{cadcliente.telefone}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.telefone}"></h:inputText>
 			E-mail:
-			<h:inputText value="#{cadcliente.email}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.email}"></h:inputText>
 			Tipo:
-			<h:selectOneMenu value="#{cadcliente.tipo}">
+			<h:selectOneMenu value="#{clienteBean.cliente.tipo}">
 					<f:selectItem itemValue="J" itemLabel="Jurídica"></f:selectItem>
 					<f:selectItem itemValue="F" itemLabel="Fisica"></f:selectItem>
 				</h:selectOneMenu>
 			CPF/CNPJ:
-			<h:inputText value="#{cadcliente.cpf}"></h:inputText>
+			<h:inputText value="#{clienteBean.cliente.cpf}"></h:inputText>
 			</h:panelGrid>
 
-			<h:commandButton value="Cadastrar" action="info"></h:commandButton>
+			<h:commandButton value="Cadastrar" action="#{clienteBean.gravar}" styleClass="btTxt"></h:commandButton>
 		</h:form>
 	</ui:define>
 </ui:composition>

@@ -37,7 +37,7 @@ public class ClienteBean extends AbstractBean {
 			}
 			
 			cliente = null;
-			return redirect("cliente");
+			return redirect("cad_cliente");
 		}catch(ValidationException e) {
 			// Ocorreu um erro de validação de negócio
 			addMessageToRequest(e.getMessage());
